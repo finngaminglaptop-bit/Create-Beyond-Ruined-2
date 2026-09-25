@@ -1,0 +1,6 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"nomansland:reeds"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"nomansland:cattail"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"nomansland:clover_patch"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

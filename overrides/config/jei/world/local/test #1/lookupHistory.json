@@ -1,0 +1,10 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"create_better_motors:raw_reggarfonite"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create_better_motors:reggarfonite_gem"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create_better_motors:reggarfonite_sheet"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create_better_motors:spirited_tier_upgrade"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"create_better_motors:spirited_motor"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mts:cmamilitarytransport.bm-21_2"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mts:cmamilitarytransport.bm-21_1"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

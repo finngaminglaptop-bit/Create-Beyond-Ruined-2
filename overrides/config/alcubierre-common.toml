@@ -1,0 +1,45 @@
+[warp]
+	#Ticks spent turning to face the destination before the jump (20 ticks = 1 second).
+	# Default: 40
+	# Range: 1 ~ 1200
+	turnTicks = 40
+	#Ticks to wait for the destination chunks to load before aborting the warp.
+	# Default: 200
+	# Range: 1 ~ 12000
+	maxChargeTicks = 200
+	#Volume of the charge-up sound played at the controller when a warp begins.
+	# Default: 2.0
+	# Range: 0.0 ~ 10.0
+	chargeVolume = 2.0
+	#Volume of the arrival boom played to each warped player.
+	# Default: 1.0
+	# Range: 0.0 ~ 10.0
+	arrivalVolume = 1.0
+
+[antigravity]
+	#RPM at which the antigravity drive reaches full lift (complete gravity cancellation).
+	# Default: 64.0
+	# Range: 1.0 ~ 4096.0
+	liftRpmCap = 64.0
+	#Vertical speed (m/s) below which settling drift is trimmed; faster motion is left alone.
+	# Default: 0.5
+	# Range: 0.0 ~ 100.0
+	trimThreshold = 0.5
+	#Fraction of residual vertical velocity removed per physics substep.
+	# Default: 0.2
+	# Range: 0.0 ~ 1.0
+	trimGain = 0.2
+	#Stress units consumed by the antigravity drive.
+	# Default: 64.0
+	# Range: 0.0 ~ 4096.0
+	stressImpact = 64.0
+
+[effects]
+	#Strength of the FOV kick on warp arrival (0 disables it).
+	# Default: 0.6
+	# Range: 0.0 ~ 4.0
+	fovKick = 0.6
+	#Ticks over which the warp post-processing effect eases in.
+	# Default: 40
+	# Range: 1 ~ 1200
+	rampTicks = 40

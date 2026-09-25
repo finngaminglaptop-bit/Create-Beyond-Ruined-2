@@ -1,0 +1,33 @@
+[sporeOverrides]
+	# Master toggle for overriding base Spore's own config values below with this
+	# mod's own defaults, applied once at mod load. Default true.
+	applySporeConfigOverrides = true
+
+	[sporeOverrides.blockInfection]
+		# Replaces Spore's own "Blocks and their infected counterparts" list.
+		# Format: "sourceBlock|infectedBlock".
+		infectedBlockCounterparts = ["minecraft:stone|spore:infested_stone", "minecraft:grass_block|minecraft:mycelium", "minecraft:dirt|spore:infested_dirt", "minecraft:coarse_dirt|spore:infested_dirt", "minecraft:podzol|spore:mycelium_block", "minecraft:rooted_dirt|spore:rooted_mycelium", "minecraft:deepslate|spore:infested_deepslate", "minecraft:sand|spore:infested_sand", "minecraft:gravel|spore:infested_gravel", "minecraft:netherrack|spore:infested_netherrack", "minecraft:end_stone|spore:infested_end_stone", "minecraft:soul_sand|spore:infested_soul_sand", "minecraft:soul_soil|spore:infested_soul_sand", "minecraft:sculk|spore:rooted_mycelium", "minecraft:red_sand|spore:infested_red_sand", "minecraft:bricks|spore:infested_bricks", "minecraft:clay|spore:infested_clay", "minecraft:cobblestone|spore:infested_cobblestone", "minecraft:cobbled_deepslate|spore:infested_cobbled_deepslate", "minecraft:stone_bricks|spore:infested_stone_bricks", "spore:lab_block|spore:infested_laboratory_block", "spore:lab_block1|spore:infested_laboratory_block1", "spore:lab_block2|spore:infested_laboratory_block2", "spore:lab_block3|spore:infested_laboratory_block3", "the_flesh_that_hates:flesh_block|spore:biomass_block", "the_flesh_that_hates:flesh_sand|spore:biomass_block", "the_flesh_that_hates:flesh_tree|spore:biomass_block", "the_flesh_that_hates:flesh_plank|spore:biomass_block", "the_flesh_that_hates:flesh_pile|spore:biomass_block", "the_flesh_that_hates:tumor|spore:biomass_block", "the_flesh_that_hates:purulent_tumor|spore:biomass_block"]
+
+	[sporeOverrides.players]
+		# Replaces Spore's own "Infected Player possible names" list.
+		infectedPlayerNames = ["The_Harbinger69", "ABucketOfFriedChicken", "LoneGuy", "cheesepuff", "Sire_AwfulThe1st", "Azami", "Deyvid", "Dany_Why", "Technoblade", "Ike", "Hypnotizd", "That_Insane_Guy", "JhonOK22", "Tabcaps", "WhisperFire26", "ButtonHatBoy", "Gistique", "yile_ouo", "BigXplosion", "Atomiclbomb", "Mad_Dog", "Ripley", "gregTheTyrant", "Joker_de_Coeur", "xXFuryXx", "Nova69", "Belladonna", "Entity", "Keymind", "Whisper", "Helldwin", "ExceedingSky74", "Flash62724", "Hank_o", "JWT114", "DawnsSlayers", "Dr_Pilot_MOO", "NexouuZ", "Mr_Door12323", "PedroHenrry", "TVGuy", "ThatGardener", "TheCaramelGuy", "TokenOni420", "lightigivhi", "CODATOWER", "hammbug", "mrlambert6", "DivnejFelix", "ThatGardener", "SyrCrypt", "KaratFeng", "Toasteroni", "UnmeiHa", "AllToAshes", "0dna", "minisketchy0919", "Visteus"]
+
+	[sporeOverrides.despawning]
+		# Replaces Spore's "Maximum number of regular infected". Default 120.
+		# Default: 120
+		# Range: > 0
+		maxRegularInfected = 120
+		# Replaces Spore's "Maximum number of evolved infected". Default 70.
+		# Default: 70
+		# Range: > 0
+		maxEvolvedInfected = 70
+		# Replaces Spore's "Maximum number of hyper infected". Default 40.
+		# Default: 40
+		# Range: > 0
+		maxHyperInfected = 40
+		# Replaces Spore's "Maximum number of organoids". Default 60.
+		# Default: 60
+		# Range: > 0
+		maxOrganoids = 60
+		# Replaces Spore's "Mobs that will not be despawned by the system" list.
+		despawnBlacklist = ["spore:proto", "spore:reconstructor", "spore:vanguard", "spore:reaper", "spore:gastgaber", "spore:specter", "spore:inf_construct", "spore:scamper", "spore:hivetumor", "spore:mound"]

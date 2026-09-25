@@ -1,0 +1,607 @@
+	[systems.world]
+		# No spore structures will spawn within this many chunks of world spawn.
+		# Set to 0 to disable. Default 3.
+		# Default: 3
+		# Range: 0 ~ 64
+		protectedSpawnRadiusChunks = 9
+
+	[systems.timing]
+		# Randomizes how long timers wait, by plus or minus this percent, each time they fire.
+		# Keeps Mounds and Proto-Hiveminds from all acting on the same tick and causing lag spikes.
+		# Set to 0 to make all timers fire at exactly their configured interval. Default 10.
+		# Default: 10
+		# Range: 0 ~ 50
+		timerJitterPercent = 10
+
+	[systems.growth]
+		# How often (in ticks) structure and Outpost Watcher growth work is handed out.
+		# Lower values spread the work more smoothly; this must stay well below the
+		# per-structure building pass intervals below or no spreading happens at all.
+		# Default 20 (1s).
+		# Default: 20
+		# Range: 1 ~ 200
+		sweepIntervalTicks = 20
+		# Chance, checked every recheckIntervalTicks, that a Mound or Proto-Hivemind starts
+		# growing its next structure or Outpost Watcher tower. Shared by all three growth
+		# systems below. Default 0.1.
+		# Default: 0.1
+		# Range: 0.0 ~ 1.0
+		placementChance = 0.1
+		# Max blocks all Mounds together may place on their own structures per sweep.
+		# Default 100.
+		# Default: 100
+		# Range: > 1
+		moundStructureBlocksPerSweep = 100
+		# Max blocks all Proto-Hiveminds together may place on their own structures per sweep.
+		# Default 400.
+		# Default: 400
+		# Range: > 1
+		protoStructureBlocksPerSweep = 400
+		# Max blocks all Mounds and Proto-Hiveminds together may place on Outpost Watchers
+		# per sweep. Shared between both organoid types, matching how every other Outpost
+		# Watcher setting already works. Default 192.
+		# Default: 192
+		# Range: > 1
+		watcherBlocksPerSweep = 192
+		# Extra ticks added to (or subtracted from) a Mound/Proto-Hivemind's 'overdue-ness'
+		# per block of Y-level below (or above) Y=0, so structures higher up tend to get built faster
+		# than those below them. Set to 0 to disable.
+		# Default 4.
+		# Default: 4
+		# Range: > 0
+		undergroundDepthPenaltyTicksPerBlock = 4
+
+	[systems.director]
+		# How often (in ticks) spore spawns are attempted. Default 100 (5s).
+		# Default: 100
+		# Range: > 20
+		directorTickIntervalTicks = 100
+		# Max number of organoids that can spawn something per cycle, closest to a player first.
+		# Default 3.
+		# Default: 3
+		# Range: > 1
+		directorBudgetPerCycle = 3
+
+	[systems.corruption]
+		# Master toggle for the World Corruption system. Default true.
+		enabled = true
+		# Hard ceiling for a dimension's World Corruption value. Default 1000.
+		# Default: 1000
+		# Range: > 1
+		cap = 1000
+		# Corruption added when a new Mound is created. Default 5.
+		# Default: 5
+		# Range: > 0
+		perMoundCreated = 5
+		# Corruption added per Mound age-up. Default 5.
+		# Default: 5
+		# Range: > 0
+		perMoundAgeUp = 5
+		# Corruption added when a new Proto-Hivemind is created. Default 20.
+		# Default: 20
+		# Range: > 0
+		perProtoCreated = 20
+		# Corruption added per Proto-Hivemind age-up. Default 20.
+		# Default: 20
+		# Range: > 0
+		perProtoAgeUp = 20
+		# How often (in ticks) Mounds and Proto-Hiveminds are checked for age-ups. Default 1200 (1 min).
+		# Default: 1200
+		# Range: > 20
+		ageScanIntervalTicks = 1200
+		# Corruption value at which Proto-Hiveminds can target raids at players. Default 100.
+		# Default: 100
+		# Range: > 0
+		breakpointRaids = 100
+		# Corruption value at which newly spawned Infected may instantly evolve. Default 150.
+		# Default: 150
+		# Range: > 0
+		breakpointInstantEvolution = 150
+		# Corruption value at which Calamities and Wombs can spawn, and new Infected gear gets
+		# at least 1 enchantment per piece. Default 250.
+		# Default: 250
+		# Range: > 0
+		breakpointCalamityWomb = 250
+		# Corruption value at which Proto raids may include Calamities. Default 500.
+		# Default: 500
+		# Range: > 0
+		breakpointCalamityRaids = 500
+		# Corruption value at which spawned Calamities gain their Adaptation. Default 650.
+		# Default: 650
+		# Range: > 0
+		breakpointAdaptations = 650
+		# Corruption value at which all applicable spore mobs spawn as Linked. Default 850.
+		# Default: 850
+		# Range: > 0
+		breakpointLinkedSpawns = 850
+		# If true, the six World Corruption breakpoint gates (raids, instant evolution,
+		# calamities/wombs, calamity raids, adaptations, linked spawns) use the highest
+		# corruption a dimension has ever reached instead of its current value, so gates
+		# don't close again after killing organoids. Default false.
+		useMaxForBreakpoints = false
+		# If true, Proto raid group size scaling uses the highest World Corruption a
+		# dimension has ever reached instead of its current value. Default false.
+		useMaxForRaidSize = false
+		# If true, corruption-based spore mob health/damage/armor scaling uses the highest
+		# World Corruption a dimension has ever reached instead of its current value.
+		# Default false.
+		useMaxForMobScaling = false
+		# Toggle for corruption-scaled spore mob health/damage/armor. Default true.
+		mobScalingEnabled = true
+		# Health multiplier applied to spore mobs at maximum World Corruption, scaling
+		# linearly from 1.0x at zero corruption. Set to 1.0 to disable. Default 3.0.
+		# Default: 3.0
+		# Range: 1.0 ~ 1000.0
+		mobHealthMaxMultiplier = 3.0
+		# Attack damage multiplier applied to spore mobs at maximum World Corruption, scaling
+		# linearly from 1.0x at zero corruption. Set to 1.0 to disable. Default 2.0.
+		# Default: 2.0
+		# Range: 1.0 ~ 1000.0
+		mobDamageMaxMultiplier = 2.0
+		# Flat armor points added to spore mobs at maximum World Corruption, scaling linearly
+		# from 0 at zero corruption. Set to 0 to disable. Default 10.0.
+		# Default: 10.0
+		# Range: 0.0 ~ 100.0
+		mobArmorMaxBonus = 10.0
+		# Flat armor toughness added to spore mobs at maximum World Corruption, scaling linearly
+		# from 0 at zero corruption. Set to 0 to disable. Default 4.0.
+		# Default: 4.0
+		# Range: 0.0 ~ 100.0
+		mobArmorToughnessMaxBonus = 4.0
+
+	[systems.chunkloading]
+		# How often (in ticks) chunkloading organoids are rechecked for growth. Default 200 (10s).
+		# Default: 200
+		# Range: > 20
+		chunkloadRecheckIntervalTicks = 200
+		# Entities that chunkload around themselves, growing from a starting radius to a max
+		# radius (radius=1 is a 3x3 area) as they age. 'tickingRadius' is the inner radius that
+		# keeps actively simulating; chunks beyond it out to the current radius stay loaded but idle. 
+		# Maximum radius of 10 chunks.
+		# Format: "entityId|minRadius|maxRadius|tickingRadius|ticksToMaxRadius".
+		chunkloadEntityOwners = ["spore:mound|1|3|1|30000", "spore:proto|3|9|2|108000"]
+		# Same format as chunkloadEntityOwners, keyed by block id instead.
+		# Useful if you want outpost watchers or similar blocks to chunkload around themselves.
+		# Empty by default.
+		chunkloadBlockOwners = []
+
+	[systems.structures]
+		# Radius (blocks) searched for a nearby structure to anchor to before falling back to
+		# the organoid's own position. Default 8.
+		# Default: 8
+		# Range: > 0
+		structureAnchorSearchRadius = 8
+		# Which system builds structures around Mounds/Proto-Hiveminds as they grow:
+		# BASE_SPORE_SHELLS keeps base Spore's own casing/seed-block growth untouched;
+		# SPORE_BREACH_TOWERS replaces it with this mod's staged NBT structure growth.
+		# Only one system runs at a time. Default SPORE_BREACH_TOWERS.
+		#Allowed Values: BASE_SPORE_SHELLS, SPORE_BREACH_TOWERS
+		structureGrowthMode = "SPORE_BREACH_TOWERS"
+		# Minimum fraction of an underground structure's blocks that must currently sit in
+		# natural terrain for it to be allowed to grow. Default 0.25.
+		# Default: 0.25
+		# Range: 0.0 ~ 1.0
+		undergroundNaturalGroundCoverage = 0.25
+		# Blocks and tags Mound/Proto-Hivemind structure growth is allowed to overwrite.
+		# Everything else is built around instead of destroyed.
+		# Each entry is either "#namespace:path" (a block tag) or "namespace:path" (a single block id).
+		# Leave this list empty to let structure growth overwrite any block.
+		replaceableBlocks = ["#sporebreach:natural_ground", "#sporebreach:bile", "#sporebreach:biomass", "#sporebreach:frozen", "#sporebreach:fungal_growth", "#sporebreach:infested", "minecraft:water", "minecraft:lava", "#minecraft:leaves", "#minecraft:logs", "#minecraft:planks", "#minecraft:moss_replaceable", "#terralith:soil_stone", "#terralith:dirt_and_stone"]
+
+		[systems.structures.outpostWatchers]
+			# Whether Mounds and Proto-Hiveminds occasionally grow Outpost Watcher towers
+			# within the area they already keep loaded. Default true.
+			enabled = true
+			# How often (in ticks) each Mound and Proto-Hivemind rolls to start a new Outpost Watcher tower.
+			# Default 6000 (5 min).
+			# Default: 6000
+			# Range: > 20
+			recheckIntervalTicks = 6000
+			# How often (in ticks) an in-progress Outpost Watcher tower is advanced by one building pass. 
+			# Default 100 (5s).
+			# Default: 100
+			# Range: > 20
+			passIntervalTicks = 100
+			# Minimum age before a Mound or Proto-Hivemind starts rolling for Outpost Watchers.
+			# Default 1.
+			# Default: 1
+			# Range: > 0
+			minAge = 1
+			# Max Outpost Watcher towers a single organoid will grow.
+			# Default 8.
+			# Default: 8
+			# Range: > 0
+			maxPerOrganoid = 8
+			# Minimum distance (blocks) a new tower must keep from any existing Outpost Watcher block.
+			# Default 32.
+			# Default: 32
+			# Range: > 0
+			minDistanceBetweenOutposts = 32
+			# Minimum gap in blocks a new tower must leave around every other grown structure.
+			# Default 1.
+			# Default: 1
+			# Range: > 0
+			minClearanceFromStructures = 1
+			# Max blocks placed per building pass.
+			#  Default 50.
+			# Default: 50
+			# Range: > 1
+			blocksPerPass = 50
+			# Whether to stop Reconstructed Minds from dropping their own instant Outpost
+			# Watcher tower when they mature too close to a Proto-Hivemind, leaving this
+			# mod's slower grown towers as the only source. Also stops that drop from repeating every few seconds.
+			# Default true.
+			suppressBaseSporeTowers = true
+			# Towers that may be grown as Outpost Watchers. Each should contain an outpost watcher block.
+			#  Format: "structureId|weight".
+			structurePool = ["spore:mega_biomass_tower|85", "sporebreach:outpost_watcher_tower|15"]
+
+	[systems.biome]
+		# Whether Mounds/Proto-Hiveminds repaint the area around themselves into this mod's
+		# corruption biome as they chunkload-grow. Default true.
+		biomePaintEnabled = true
+		# How many chunks past an organoid's own chunkload radius the biome painting should extend.
+		# Default 2.
+		# Default: 2
+		# Range: 0 ~ 10
+		biomePaintExtraRadiusChunks = 2
+		# Max chunk columns (re)painted per recheck. Default 4.
+		# Default: 4
+		# Range: > 1
+		biomePaintColumnsPerPass = 4
+		# How often (in ticks) biome-paint growth and its paint queue are advanced. Default
+		# 200 (10s).
+		# Default: 200
+		# Range: > 20
+		biomePaintRecheckIntervalTicks = 200
+		# Ticks an unclaimed column lingers as active corruption biome before downgrading to
+		# the deader scar biome. Default 12000 (10 min).
+		# Default: 12000
+		# Range: > 0
+		biomePaintScarDelayTicks = 12000
+		# Whether surface water under newly painted corruption biome gradually crusts over
+		# with bile. Default true.
+		areaWaterReplacementEnabled = true
+		# Max depth (blocks) below the surface that water is converted to crusted bile.
+		# Default 3.
+		# Default: 3
+		# Range: 1 ~ 32
+		areaWaterReplacementDepth = 3
+		# Max water blocks converted to crusted bile per recheck.
+		# Default 16.
+		# Default: 16
+		# Range: > 1
+		areaWaterReplacementBlocksPerPass = 16
+		# How often (in ticks) each organoid rolls a chance to seed a fresh water source
+		# somewhere within its biome radius, catching pools not connected to its main spread.
+		# Default 1200 (1 min).
+		# Default: 1200
+		# Range: > 20
+		areaWaterReseedIntervalTicks = 1200
+		# Chance, checked every areaWaterReseedIntervalTicks per organoid, of rolling a new
+		# reseed. Default 0.1.
+		# Default: 0.1
+		# Range: 0.0 ~ 1.0
+		areaWaterReseedChance = 0.1
+		# Whether infested ground, biomass, and fungal growth left behind in a downgraded
+		# dead scar area slowly rot back to normal in the background. Default true.
+		deadScarDecayEnabled = true
+		# How often (in ticks) the dead scar decay backlog is advanced. Default 100 (5s).
+		# Default: 100
+		# Range: > 20
+		deadScarDecayIntervalTicks = 100
+		# Max dead scar columns force-loaded at once, per dimension, purely to sweep them for
+		# decay. Keeps this feature's extra chunkloading footprint small regardless of how large the backlog grows.
+		# Default 2.
+		# Default: 2
+		# Range: > 1
+		deadScarDecayMaxConcurrentSweeps = 2
+		# Max block positions examined per swept column per recheck. Default 64.
+		# Default: 64
+		# Range: > 1
+		deadScarDecayBlocksPerPass = 64
+
+	[mobs.mound]
+		# Cooldown between defender spawns for a single Mound. Default 600 (30s).
+		# Default: 600
+		# Range: > 20
+		moundDefenderCooldownTicks = 600
+		# Radius (blocks) around a Mound used to count and place defenders. Default 16.
+		# Default: 16
+		# Range: > 0
+		moundDefenderSearchRadius = 16
+		# Max defenders a Mound allows within its search radius before it stops spawning more.
+		# Default 12.
+		# Default: 12
+		# Range: > 0
+		moundMaxDefendersNearby = 12
+		# Entities a Mound may spawn as defenders.
+		# Format: "entityId|weight|min|max".
+		moundDefenderSpawnPool = ["spore:inf_human|80|1|2", "spore:inf_villager|50|1|2", "spore:inf_pillager|30|1|1"]
+
+		[mobs.mound.spawning]
+			# Whether Mounds are guaranteed to spawn at eligible structures. Default true.
+			enabled = true
+			# How often (in ticks) eligible structures are checked for guaranteed Mound spawns.
+			# Default 40 (2s).
+			# Default: 40
+			# Range: > 20
+			scanIntervalTicks = 40
+			# Structures that can spawn Mounds the first time a player comes near them.
+			# Format: "#namespace:path|chance" (a structure tag) or "namespace:path|chance" (a single structure id).
+			# Chance is 0.0-1.0 and controls how likely each individual structure is to get Mounds at all.
+			# The result is fixed per structure, so it will not re-roll over time.
+			# A structure id entry overrides any tag entry that also covers that structure.
+			eligibleStructures = ["#spore:laboratories|1.0", "#spore:churches|1.0", "#minecraft:village|0.25", "spore:cell|1.0", "spore:celltower|1.0", "spore:iceberg_mines|1.0", "spore:lodge|0.75", "spore:mass_grave|1.0", "sporebreach:end_lab|1.0", "sporebreach:nether_lab|1.0", "sporebreach:warped_lab|1.0"]
+			# Minimum number of Mounds spawned per eligible structure. Default 1.
+			# Default: 1
+			# Range: > 0
+			countMin = 1
+			# Maximum number of Mounds spawned per eligible structure. Default 1.
+			# Default: 1
+			# Range: > 0
+			countMax = 1
+
+		[mobs.mound.structures]
+			# How often (in ticks) a Mound is checked for starting a new structure growth job.
+			# Default 1200 (1 min).
+			# Default: 1200
+			# Range: > 20
+			recheckIntervalTicks = 1200
+			# How often (in ticks) an in-progress structure growth job is advanced by one
+			# building pass. Default 100 (5s).
+			# Default: 100
+			# Range: > 20
+			passIntervalTicks = 100
+			# Minimum Mound age (0-4) before it can start growing structures. Default 2.
+			# Default: 2
+			# Range: 0 ~ 4
+			minAge = 2
+			# Max structures a single Mound will grow around itself. Default 3.
+			# Default: 3
+			# Range: > 0
+			maxPerMound = 3
+			# Minimum distance (blocks) between a Mound's 2nd+ grown structure and its earlier
+			# ones. The first structure is always centered on the Mound itself. Default 12.
+			# Default: 12
+			# Range: > 0
+			minDistance = 12
+			# Max blocks placed per building pass. Default 20.
+			# Default: 20
+			# Range: > 1
+			blocksPerPass = 20
+			# Structures a Mound may grow around itself. verticalOffset shifts the structure's
+			# anchor up (positive) or down (negative) from ground/Mound level; omit it to default to 0.
+			# Format: "structureId|weight" or "structureId|weight|verticalOffset".
+			structurePool = ["sporebreach:mound_watchtower|30|-3", "sporebreach:mound_fort_bulb|35|-2", "sporebreach:mound_fort_cluster|35|-2"]
+			# Chance an underground structure grows beneath a completed surface structure.
+			# Default 0.5.
+			# Default: 0.5
+			# Range: 0.0 ~ 1.0
+			undergroundChance = 0.5
+			# Underground structures a Mound may grow beneath a surface structure. Skipped if it
+			# wouldn't clear undergroundNaturalGroundCoverage (see [mobs.structures]).
+			# Format: "structureId|weight".
+			undergroundPool = ["sporebreach:underground_pillar_small|30", "sporebreach:underground_pillar_large|25", "sporebreach:underground_chambers|25", "sporebreach:underground_column|20"]
+
+	[mobs.scamper]
+		# Limits how many Mounds a Scamper can spawn into an already-crowded area when it ages
+		# up into one. Default true.
+		enableScamperMoundDensityGate = true
+		# Radius (blocks) around a Scamper's age-up point checked for existing Mounds before
+		# allowing it to spawn new ones. Default 16.
+		# Default: 16
+		# Range: > 0
+		scamperMoundDensityRadius = 16
+		# Max Mounds allowed within scamperMoundDensityRadius before a Scamper's age-up spawns
+		# no new Mounds at all. Default 1.
+		# Default: 1
+		# Range: > 0
+		scamperMoundMaxNearby = 1
+		# Minimum Mounds placed by a Scamper age-up that passes the density check. Default 1.
+		# Default: 1
+		# Range: > 1
+		scamperMoundSummonMin = 1
+		# Maximum Mounds placed by a Scamper age-up that passes the density check. Should be >=
+		# scamperMoundSummonMin. Default 1.
+		# Default: 1
+		# Range: > 1
+		scamperMoundSummonMax = 1
+		# Horizontal radius (blocks) within which a Scamper's age-up places its new Mounds.
+		# Default 6.
+		# Default: 6
+		# Range: > 0
+		scamperMoundSummonRange = 6
+
+	[mobs.proto]
+		# Maximum 'age counter' for Proto-Hiveminds. Default 20.
+		# Default: 4
+		# Range: > 0
+		protoMaxAge = 4
+		# Ticks between Proto-Hivemind age-ups. Default 18000 (15 min)
+		# Default: 18000
+		# Range: > 20
+		protoAgeUpIntervalTicks = 18000
+
+		[mobs.proto.raids]
+			# Lower bound of the randomized cooldown between raids sent out by a Proto-Hivemind.
+			# Default 12000 (10 min).
+			# Default: 12000
+			# Range: > 20
+			protoRaidCooldownMinTicks = 12000
+			# Upper bound of the randomized cooldown between raids sent out by a Proto-Hivemind.
+			# Default 54000 (45 min). Should be >= protoRaidCooldownMinTicks.
+			# Default: 54000
+			# Range: > 20
+			protoRaidCooldownMaxTicks = 54000
+			# Radius (blocks) a Proto-Hivemind searches for raid targets - structures or players.
+			# Default 300.
+			# Default: 300
+			# Range: > 0
+			protoRaidSearchRadius = 300
+			# Baseline minimum raid group size. Scales up with World Corruption. Default 2.
+			# Default: 2
+			# Range: > 0
+			protoRaidGroupSizeMin = 2
+			# Baseline maximum raid group size. Scales up with World Corruption. Default 5.
+			# Default: 5
+			# Range: > 0
+			protoRaidGroupSizeMax = 5
+			# How much protoRaidGroupSizeMin/Max are multiplied by at maximum World Corruption,
+			# scaling linearly from 1.0 at zero corruption. Set to 1.0 to disable scaling.
+			# Default 10.0.
+			# Default: 10.0
+			# Range: 1.0 ~ 1000.0
+			protoRaidGroupSizeMaxMultiplier = 10.0
+			# Entities a Proto-Hivemind may send on a raid. Format: "entityId|weight|min|max".
+			# "max" caps how many of that entity a single raid can include (0 or less means unlimited).
+			# Calamities are not included here; see protoCalamitySpawnPool.
+			protoRaidSpawnPool = ["spore:vanguard|70|1|1", "spore:inf_pillager|60|1|0", "spore:inf_vindicator|40|1|0", "spore:inf_evoker|30|1|1", "spore:inf_witch|20|1|1", "spore:stalker|20|1|0", "spore:brute|20|1|0", "spore:volatile|20|1|0", "spore:mephitic|20|1|0"]
+			# Calamities a Proto-Hivemind may include in a raid once World Corruption allows it.
+			# Defaults include land and air calamities.
+			# Format: "entityId|weight|min|max".
+			protoCalamitySpawnPool = ["spore:stahl|100|1|1", "spore:sieger|100|1|1", "spore:howitzer|80|1|1", "spore:hohlfresser|25|1|1", "spore:hindenburg|15|1|1", "spore:verfall|15|1|1"]
+			# Whether raiders head straight for their raid's destination instead of idling near
+			# their spawn point. Default true.
+			protoRaidDirectedTravel = true
+			# Max time a traveling raider keeps forced chunkloading before it's released, even if
+			# it never arrives. Default 18000 (15 min).
+			# Default: 18000
+			# Range: > 20
+			protoRaidTravelMaxDurationTicks = 18000
+			# How often (in ticks) traveling raiders are checked for timeout. Default 3000 (2.5 min).
+			# Default: 3000
+			# Range: > 20
+			protoRaidTravelSweepIntervalTicks = 3000
+			# Whether raid survivors (and any backup a Vanguard calls in) walk back to their
+			# Proto-Hivemind after fighting for a while, turning into biomass on arrival. Default true.
+			enableProtoRaidReturn = true
+			# How long a raider stays at the raid location, after arriving there, before heading
+			# home. Travel time to the target doesn't count against this. Default 6000 (5 min).
+			# Default: 6000
+			# Range: > 0
+			protoRaidEngagementTicks = 6000
+			# Max time a returning raider keeps forced chunkloading before it's abandoned, even if
+			# it never makes it home. Default 18000 (15 min).
+			# Default: 18000
+			# Range: > 20
+			protoRaidReturnMaxDurationTicks = 18000
+			# Flat biomass every surviving raider brings home on arrival, in addition to any kills
+			# it racked up while raiding. Default 3.
+			# Default: 3
+			# Range: > 0
+			protoRaidReturnBaseBiomass = 3
+
+		[mobs.proto.wombs]
+			# Proto-Hiveminds can summon Wombs when a player is nearby and they are attacked or
+			# killed. This section controls how often that can happen, and how many Wombs are allowed in the area at once.
+			# Limits how often kills near a Proto-Hivemind can summon a Womb, so a killing spree
+			# can't place many in a row. Default true.
+			enableProtoWombSignalGate = true
+			# Radius (blocks) around a Proto-Hivemind checked for existing Wombs before allowing a
+			# new one. Default 48.
+			# Default: 48
+			# Range: > 0
+			protoWombSignalDensityRadius = 48
+			# Max Wombs allowed within protoWombSignalDensityRadius before new ones are blocked.
+			# Default 2.
+			# Default: 2
+			# Range: > 0
+			protoWombSignalMaxNearby = 2
+			# Minimum ticks between Womb summons from the same Proto-Hivemind. Set to 0 to disable.
+			# Default 3000 (2.5 min).
+			# Default: 3000
+			# Range: > 0
+			protoWombSignalCooldownTicks = 3000
+
+		[mobs.proto.structures]
+			# How often (in ticks) a Proto-Hivemind is checked for starting a new structure
+			# growth job. Default 6000 (5 min).
+			# Default: 6000
+			# Range: > 20
+			recheckIntervalTicks = 6000
+			# How often (in ticks) an in-progress structure growth job is advanced by one
+			# building pass. Default 100 (5s).
+			# Default: 100
+			# Range: > 20
+			passIntervalTicks = 100
+			# Minimum Proto-Hivemind age before it can start growing structures. Default 1.
+			# Default: 1
+			# Range: > 0
+			minAge = 1
+			# Max structures a single Proto-Hivemind will grow around itself. Default 5.
+			# Default: 5
+			# Range: > 1
+			maxPerProto = 5
+			# Minimum distance (blocks) between a Proto-Hivemind's 2nd+ grown structure and its
+			# earlier ones. The first structure is always centered on the Proto-Hivemind itself.
+			# Default 64.
+			# Default: 64
+			# Range: > 0
+			minDistance = 64
+			# Biomass spent per building pass, the same resource base Spore's own Proto-Hivemind
+			# shell growth spends. A pass is skipped if biomass is too low. Default 8.
+			# Default: 8
+			# Range: > 0
+			biomassCostPerPass = 8
+			# Max blocks placed per building pass. Default 200.
+			# Default: 200
+			# Range: > 1
+			blocksPerPass = 200
+			# Structures a Proto-Hivemind may grow around itself. verticalOffset shifts the structure's
+			# anchor up (positive) or down (negative) from ground/Proto-Hivemind level; omit it to default to 0.
+			# Format: "structureId|weight" or "structureId|weight|verticalOffset".
+			structurePool = ["sporebreach:proto_spire_hollow|40|-45", "sporebreach:proto_spire_hollow_alt|40|-45", "sporebreach:proto_spire_apex|20|-30", "sporebreach:proto_spire_needle|20|-30", "sporebreach:proto_spire_shelf|20|-60"]
+			# Chance an underground structure grows beneath a completed surface structure.
+			# Always guaranteed for a Proto-Hivemind's first structure regardless of this chance.
+			# Default 0.5.
+			# Default: 0.5
+			# Range: 0.0 ~ 1.0
+			undergroundChance = 0.5
+			# Underground structures a Proto-Hivemind may grow beneath a surface structure. Skipped
+			# if it wouldn't clear undergroundNaturalGroundCoverage (see [mobs.structures]).
+			# Format: "structureId|weight".
+			undergroundPool = ["sporebreach:underground_pillar_large|25", "sporebreach:underground_column|20"]
+
+		[mobs.proto.outposts]
+			# Whether Proto-Hiveminds seed new Mound outposts at a distance from themselves
+			# to extend the infected area. Default true.
+			enabled = true
+			# Minimum Proto-Hivemind age before it starts rolling to seed outposts. Default 2.
+			# Default: 2
+			# Range: > 0
+			minAge = 2
+			# Minimum ticks between outpost-seeding rolls from the same Proto-Hivemind.
+			# Default 12000 (10 min).
+			# Default: 12000
+			# Range: > 20
+			cooldownTicks = 12000
+			# Minimum distance (blocks) from a Proto-Hivemind that a new outpost may be seeded.
+			# Default 96.
+			# Default: 96
+			# Range: > 0
+			minDistance = 96
+			# Maximum distance (blocks) from a Proto-Hivemind that a new outpost may be seeded.
+			# Should be >= minDistance. Default 128.
+			# Default: 128
+			# Range: > 0
+			maxDistance = 128
+			# Radius (blocks) around a candidate outpost site checked for existing Mounds
+			# before seeding a new one. Default 32.
+			# Default: 32
+			# Range: > 0
+			moundCheckRadius = 32
+			# Max Mounds allowed within moundCheckRadius of a candidate site before seeding
+			# there is skipped for this roll. Default 1.
+			# Default: 1
+			# Range: > 0
+			moundLimit = 1
+
+	[mobs.calamity]
+		# Master toggle for the global Calamity cap. Default true.
+		calamityCapEnabled = true
+		# Max Calamities allowed to exist at once, across every dimension. New Calamities beyond
+		# this cull whichever existing one is furthest from any player. Default 8.
+		# Default: 8
+		# Range: > 0
+		calamityCap = 8

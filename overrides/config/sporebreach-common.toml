@@ -1,0 +1,12 @@
+[spawning]
+	# Stops Spore mobs from randomly spawning in the world, so this mod's own spawn system
+	# is the only source of Spore mobs. Default true.
+	suppressVanillaSporeSpawns = true
+	# Disables Spore's own Vigil-ambush raid, which teleports a Vigil next to a detected
+	# player, since this mod's own raid system replaces it. Default true.
+	suppressProtoVigilRaid = true
+
+[corruption]
+	# Replaces Spore's own Proto World difficulty modifier with this mod's World Corruption
+	# system. Default true.
+	neutralizeProtoWorldModifier = true

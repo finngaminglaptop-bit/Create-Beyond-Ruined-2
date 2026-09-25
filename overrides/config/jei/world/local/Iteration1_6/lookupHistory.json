@@ -1,0 +1,5 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"spore:documents"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"spore:nuclea_spawnegg"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

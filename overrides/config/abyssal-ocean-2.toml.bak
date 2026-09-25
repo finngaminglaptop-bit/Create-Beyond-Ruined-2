@@ -1,0 +1,44 @@
+#Abyssal Ocean world-generation settings.
+#Changes affect only newly generated chunks. Restarting the world is recommended.
+[worldgen]
+	#Controls how rare Abyssal Ocean regions are.
+	#LOWER values make the biome more common; HIGHER values make it rarer.
+	#Default 0.74 preserves the 1.7.0 frequency. Suggested: 0.68 common, 0.80 rare.
+	# Default: 0.74
+	# Range: 0.55 ~ 0.9
+	rarityThreshold = 0.68
+	#Horizontal size multiplier for each continuous Abyssal Ocean region.
+	#Higher values create broader, more expansive regions without directly increasing coverage.
+	#Default 1.0 preserves 1.7.0. Suggested range for normal packs: 0.5 to 3.0.
+	# Default: 1.0
+	# Range: 0.25 ~ 8.0
+	regionScale = 1.0
+	#Controls how much of a selected region becomes a fully deep abyssal plain.
+	#Higher values make the deepest inner valley wider; lower values leave more gradual terrain.
+	#Default 1.0 preserves 1.7.0.
+	# Default: 1.0
+	# Range: 0.25 ~ 4.0
+	deepAreaScale = 1.0
+	#Offshore climate gate. More negative values keep the biome farther from mainland coasts.
+	#Default -0.30 preserves the normal-ocean shelf used by 1.7.0.
+	#Do not raise this above -0.19, the approximate vanilla coast boundary.
+	# Default: -0.3
+	# Range: -1.2 ~ -0.19
+	maximumContinentalness = -0.3
+	#Width in blocks of the local shelf/slope at an Abyssal Ocean boundary.
+	#Higher values make a longer gradual descent but reduce the fully deep center.
+	#Default 160 preserves 1.7.0.
+	# Default: 160
+	# Range: 32 ~ 512
+	slopeWidth = 160
+	#Height of the deepest sandy floor above the world's minimum build height.
+	#6 is the deepest safe default and places the floor six blocks above minimum bedrock.
+	#Higher values make the valley shallower.
+	# Default: 6
+	# Range: 6 ~ 96
+	floorHeightAboveMinY = 32
+	#Maximum additional blocks of natural relief on the deepest sandy floor.
+	#0 makes the abyssal plain flat; default 2 preserves 1.7.0.
+	# Default: 2
+	# Range: 0 ~ 16
+	maxFloorRelief = 2

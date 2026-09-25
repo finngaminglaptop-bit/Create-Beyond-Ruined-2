@@ -1,0 +1,8 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"lightmanscurrency:coin_emerald"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"superbwarfare:sentinel","components":{"superbwarfare:energy":14514,"geckolib:stack_animatable_id":2,"minecraft:custom_data":{"GunData":{"UUID":[-558221799,1541293020,-1185166182,-1111912171],"Exp":171.14285850524902,"Level":1,"Ammo":2,"CloseStrike":1}}}},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"superbwarfare:container","components":{"minecraft:block_entity_data":{"EntityType":"superbwarfare:laser_tower","id":"superbwarfare:container"}}},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"lightmanscurrency:coin_ancient","components":{"lightmanscurrency:ancient_coin_type":"NETHERITE_R2"}},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"lightmanscurrency:coin_ancient","components":{"lightmanscurrency:ancient_coin_type":"NETHERITE_H"}},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

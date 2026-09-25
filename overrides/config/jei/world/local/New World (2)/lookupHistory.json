@@ -1,0 +1,6 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"createdeco:gold_coin"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"nomansland:quartzite_cluster"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"minecraft:quartz"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

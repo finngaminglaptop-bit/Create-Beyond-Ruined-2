@@ -1,0 +1,7 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"create_sa:copper_chestplate"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"alcubierre:antigravity_drive"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"alcubierre:alcubierre_controller"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"draconicevolution:reactor_core"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

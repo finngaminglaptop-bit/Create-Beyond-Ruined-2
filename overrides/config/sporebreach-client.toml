@@ -1,0 +1,3 @@
+[debug]
+	# Shows organoid cooldowns and search/raid radii on-screen. Default false.
+	debugOverlayEnabled = false

@@ -1,0 +1,13 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"mts:mtsofficialpack.copperwire"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mts:mtsofficialpack.quad_gray"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"electrodynamics:ingotsteel"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"superbwarfare:blueprint_research_table"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"superbwarfare:hk_416_blueprint"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"superbwarfare:hk_416"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"superbwarfare:data_chip_substrate"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"superbwarfare:rare_blueprint_data_chip"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mts:mts.y2kbutton"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mts:mts.handbook_car"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]
